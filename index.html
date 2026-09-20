@@ -3,66 +3,387 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Turnuva Hakemi | Profesyonel Hakemlik Hizmetleri</title>
+  <title>Turnuva Hakemi | Profesyonel Futbol & Turnuva Hakemliği</title>
+  <meta name="description" content="Şirket ligleri, özel turnuvalar ve halı saha organizasyonları için lisanslı ve tecrübeli hakemlik hizmetleri.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
   <style>
     :root {
-      --bg: #0d1117;
-      --card-bg: #161b22;
+      --bg: #0b0c10;
+      --card-bg: #14161d;
       --gold: #d4af37;
-      --text: #e6edf3;
-      --muted: #8b949e;
+      --gold-hover: #b89726;
+      --text: #f5f6fa;
+      --muted: #9ba1b0;
+      --red: #e63946;
+      --yellow: #ffb703;
+      --border: rgba(212, 175, 55, 0.2);
     }
-    * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
-    body { background-color: var(--bg); color: var(--text); line-height: 1.6; }
-    header { padding: 20px; text-align: center; border-bottom: 1px solid #30363d; }
-    .hero { text-align: center; padding: 60px 20px; background: radial-gradient(circle, #1f2937 0%, #0d1117 100%); }
-    .hero h1 { font-size: 2.5rem; color: #fff; margin-bottom: 15px; }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body {
+      background-color: var(--bg);
+      color: var(--text);
+      font-family: 'Inter', sans-serif;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    h1, h2, h3, .nav-logo { font-family: 'Montserrat', sans-serif; }
+
+    /* Navbar */
+    header {
+      position: sticky;
+      top: 0;
+      background: rgba(11, 12, 16, 0.95);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+      z-index: 1000;
+      padding: 12px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text);
+    }
+    .brand img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      border: 1px solid var(--gold);
+    }
+    .brand span {
+      font-size: 1.25rem;
+      font-weight: 800;
+      letter-spacing: 1px;
+      color: var(--gold);
+    }
+    nav a {
+      color: var(--text);
+      text-decoration: none;
+      margin-left: 20px;
+      font-size: 0.95rem;
+      font-weight: 500;
+      transition: color 0.2s;
+    }
+    nav a:hover { color: var(--gold); }
+
+    /* Hero */
+    .hero {
+      padding: 90px 5% 70px;
+      text-align: center;
+      background: radial-gradient(circle at top, rgba(212, 175, 55, 0.12) 0%, transparent 70%);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 6px 16px;
+      border-radius: 20px;
+      background: rgba(212, 175, 55, 0.1);
+      border: 1px solid var(--border);
+      color: var(--gold);
+      font-size: 0.85rem;
+      margin-bottom: 24px;
+      font-weight: 600;
+    }
+    .hero h1 {
+      font-size: 2.8rem;
+      font-weight: 800;
+      margin-bottom: 18px;
+      line-height: 1.2;
+    }
     .hero h1 span { color: var(--gold); }
-    .hero p { font-size: 1.1rem; color: var(--muted); max-width: 600px; margin: 0 auto 30px; }
-    .btn { display: inline-block; padding: 12px 28px; background: var(--gold); color: #000; font-weight: bold; border-radius: 6px; text-decoration: none; transition: 0.3s; }
-    .btn:hover { background: #e5c158; transform: translateY(-2px); }
-    .container { max-width: 1000px; margin: auto; padding: 40px 20px; }
-    .section-title { font-size: 1.8rem; margin-bottom: 25px; text-align: center; color: var(--gold); }
-    .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
-    .card { background: var(--card-bg); padding: 25px; border-radius: 8px; border: 1px solid #30363d; }
-    .card h3 { margin-bottom: 10px; color: #fff; }
-    .card p { color: var(--muted); font-size: 0.95rem; }
-    footer { text-align: center; padding: 30px; border-top: 1px solid #30363d; color: var(--muted); font-size: 0.9rem; }
+    .hero p {
+      color: var(--muted);
+      max-width: 650px;
+      margin: 0 auto 32px;
+      font-size: 1.1rem;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 14px 28px;
+      background: var(--gold);
+      color: #000;
+      font-weight: 700;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: all 0.2s;
+    }
+    .btn:hover {
+      background: var(--gold-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(212, 175, 55, 0.3);
+    }
+
+    /* Genel Konteyner */
+    .container { max-width: 1140px; margin: 0 auto; padding: 60px 20px; }
+    .section-title {
+      text-align: center;
+      font-size: 2rem;
+      margin-bottom: 12px;
+      font-weight: 800;
+    }
+    .section-title span { color: var(--gold); }
+    .section-subtitle {
+      text-align: center;
+      color: var(--muted);
+      margin-bottom: 45px;
+      font-size: 1rem;
+    }
+
+    /* Hakkımızda / Profil Kartı */
+    .about-card {
+      display: grid;
+      grid-template-columns: 1fr 1.5fr;
+      background: var(--card-bg);
+      border-radius: 12px;
+      overflow: hidden;
+      border: 1px solid var(--border);
+      gap: 30px;
+      align-items: center;
+    }
+    .about-img img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .about-content { padding: 30px 40px 30px 10px; }
+    .about-content h3 { font-size: 1.6rem; color: var(--gold); margin-bottom: 15px; }
+    .about-content p { color: #cfd3dc; margin-bottom: 20px; font-size: 1rem; }
+    .stats {
+      display: flex;
+      gap: 24px;
+      margin-top: 15px;
+    }
+    .stat-item h4 { font-size: 1.8rem; color: var(--gold); font-weight: 800; }
+    .stat-item p { font-size: 0.85rem; color: var(--muted); }
+
+    /* Galeri */
+    .gallery-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 20px;
+    }
+    .gallery-item {
+      position: relative;
+      border-radius: 10px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.08);
+      height: 240px;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.5);
+    }
+    .gallery-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.3s ease;
+    }
+    .gallery-item:hover img { transform: scale(1.05); }
+
+    /* Turnuva Takvimi */
+    .schedule-table-wrapper {
+      background: var(--card-bg);
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      overflow-x: auto;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      text-align: left;
+    }
+    th, td { padding: 16px 20px; border-bottom: 1px solid rgba(255, 255, 255, 0.05); }
+    th {
+      background: rgba(212, 175, 55, 0.08);
+      color: var(--gold);
+      font-weight: 700;
+      font-size: 0.9rem;
+    }
+    td { color: #dce1eb; font-size: 0.95rem; }
+    .tag {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-size: 0.75rem;
+      font-weight: 600;
+    }
+    .tag-active { background: rgba(46, 204, 113, 0.2); color: #2ecc71; }
+    .tag-upcoming { background: rgba(241, 196, 15, 0.2); color: #f1c40f; }
+
+    /* Sabit WhatsApp Butonu */
+    .floating-wa {
+      position: fixed;
+      bottom: 25px;
+      right: 25px;
+      background: #25d366;
+      color: #fff;
+      border-radius: 50px;
+      padding: 12px 20px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      box-shadow: 0 5px 25px rgba(37, 211, 102, 0.4);
+      text-decoration: none;
+      font-weight: 700;
+      font-size: 0.95rem;
+      z-index: 9999;
+      transition: all 0.2s ease;
+    }
+    .floating-wa:hover {
+      background: #20ba59;
+      transform: scale(1.04);
+    }
+    .floating-wa i { font-size: 1.4rem; }
+
+    /* Footer */
+    footer {
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      padding: 30px 5%;
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 { font-size: 2.1rem; }
+      .about-card { grid-template-columns: 1fr; }
+      .about-content { padding: 25px; }
+      nav { display: none; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- Header -->
   <header>
-    <h2>TURNUVA HAKEMİ</h2>
+    <a href="#" class="brand">
+      <img src="logo.png" alt="Turnuva Hakemi Logo">
+      <span>TURNUVA HAKEMİ</span>
+    </a>
+    <nav>
+      <a href="#hakkimizda">Hakkımızda</a>
+      <a href="#galeri">Maç Anları</a>
+      <a href="#takvim">Turnuva Takvimi</a>
+      <a href="https://wa.me/905xxxxxxxxx?text=Merhaba,%20turnuva%20hakemliği%20için%20bilgi%20almak%20istiyorum." target="_blank" style="color: var(--gold); font-weight:700;">İletişim</a>
+    </nav>
   </header>
 
+  <!-- Hero -->
   <section class="hero">
-    <h1>Sahada Adalet, <span>Kusursuz Yönetim</span></h1>
-    <p>Şirket ligleri, altyapı turnuvaları ve özel müsabakalar için profesyonel hakem organizasyonu.</p>
-    <a href="https://wa.me/905xxxxxxxxx?text=Merhaba,%20turnuva%20hakemlik%20hizmeti%20hakkında%20bilgi%20almak%20istiyorum." class="btn" target="_blank">Hakem Talep Et (WhatsApp)</a>
+    <div class="hero-badge">
+      <i class="fa-solid fa-shield-halved"></i> Tarafsız • Deneyimli • Profesyonel
+    </div>
+    <h1>Özel Ligler ve Turnuvalara<br><span>Resmi Hakemlik Standartı</span></h1>
+    <p>Kurumsal şirket ligleri, dernek organizasyonları ve halı saha turnuvalarında adaleti ve maç disiplinini sahaya yansıtıyoruz.</p>
+    <a href="https://wa.me/905xxxxxxxxx?text=Merhaba,%20turnuva%20hakemliği%20rezervasyonu%20yaptırmak%20istiyorum." target="_blank" class="btn">
+      <i class="fa-brands fa-whatsapp fa-lg"></i> Hakem Rezervasyonu Yap
+    </a>
   </section>
 
-  <div class="container">
-    <h2 class="section-title">Hizmet Alanlarımız</h2>
-    <div class="grid">
-      <div class="card">
-        <h3>Şirket Ligleri & Kurumsal Kupalar</h3>
-        <p>Kurum içi ve şirketler arası futbol liglerinde disiplinli, saygılı ve adil yönetim standardı.</p>
+  <!-- Hakkımızda -->
+  <div class="container" id="hakkimizda">
+    <div class="about-card">
+      <div class="about-img">
+        <img src="hakkimizda.jpg" alt="Turnuva Hakemi Hakkımızda">
       </div>
-      <div class="card">
-        <h3>Altyapı & Akademi Turnuvaları</h3>
-        <p>Geleceğin sporcularına kuralları öğreten, eğitici ve pozitif hakemlik yaklaşımı.</p>
-      </div>
-      <div class="card">
-        <h3>Hizmet Bölgelerimiz</h3>
-        <p>Aydın, İzmir, Denizli ve çevre illerdeki tüm halı saha ve saha turnuvaları.</p>
+      <div class="about-content">
+        <h3>Sahada Kusursuz Yönetim</h3>
+        <p>Yılların getirdiği resmi müsabaka ve amatör lig hakemliği deneyimini şirket içi turnuvalara, özel liglere ve kupa organizasyonlarına taşıyoruz. Oyun kurallarına tam hakimiyet, oyuncu iletişimi ve yüksek tempo yönetimiyle maçlarınızın kalitesini artırın.</p>
+        <div class="stats">
+          <div class="stat-item">
+            <h4>8+</h4>
+            <p>Yıllık Deneyim</p>
+          </div>
+          <div class="stat-item">
+            <h4>500+</h4>
+            <p>Yönetilen Karşılaşma</p>
+          </div>
+          <div class="stat-item">
+            <h4>%100</h4>
+            <p>Müsabaka Disiplini</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 
+  <!-- Maç Anları / Galeri -->
+  <div class="container" id="galeri">
+    <h2 class="section-title">Sahadan <span>Maç Anları</span></h2>
+    <p class="section-subtitle">Yönetilen kupa, lig ve özel karşılaşmalardan kareler</p>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="mac1.jpg" alt="Turnuva Hakemi Seremoni">
+      </div>
+      <div class="gallery-item">
+        <img src="mac-anlari-kapak.jpg" alt="Turnuva Hakemi Düdük ve Kartlar">
+      </div>
+      <div class="gallery-item">
+        <img src="mac2.jpg" alt="Turnuva Karşılaşması Pozisyon">
+      </div>
+      <div class="gallery-item">
+        <img src="mac3.jpg" alt="Hakemlik Yönetimi">
+      </div>
+    </div>
+  </div>
+
+  <!-- Turnuva Takvimi -->
+  <div class="container" id="takvim">
+    <h2 class="section-title">Turnuva & Etkinlik <span>Takvimi</span></h2>
+    <p class="section-subtitle">Yaklaşan ve devam eden organizasyon planlaması</p>
+    <div class="schedule-table-wrapper">
+      <table>
+        <thead>
+          <tr>
+            <th>Organizasyon / Turnuva</th>
+            <th>Kategori</th>
+            <th>Durum</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Kurumsal Şirketler Ligi</strong></td>
+            <td>Büyük Saha / Şirketler</td>
+            <td><span class="tag tag-active">Devam Ediyor</span></td>
+          </tr>
+          <tr>
+            <td><strong>Bahar Halı Saha Kupası</strong></td>
+            <td>7v7 Özel Turnuva</td>
+            <td><span class="tag tag-upcoming">Kayıt / Planlama</span></td>
+          </tr>
+          <tr>
+            <td><strong>Akademi & Gençlik Müsabakaları</strong></td>
+            <td>Altyapı Turnuvası</td>
+            <td><span class="tag tag-upcoming">Yakında</span></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Sabit WhatsApp Butonu -->
+  <a href="https://wa.me/905xxxxxxxxx?text=Merhaba,%20turnuvamız%20için%20hakemlik%20hizmeti%20almak%20istiyoruz." class="floating-wa" target="_blank">
+    <i class="fa-brands fa-whatsapp"></i>
+    <span>Rezervasyon & Bilgi</span>
+  </a>
+
+  <!-- Footer -->
   <footer>
-    <p>&copy; Turnuva Hakemi - Tüm Hakları Saklıdır.</p>
+    <p>&copy; 2026 Turnuva Hakemi. Tüm hakları saklıdır. | turnuvahakemi.com.tr</p>
   </footer>
 
 </body>
+</html>
 </html>
